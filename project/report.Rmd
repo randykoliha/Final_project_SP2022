@@ -11,3 +11,29 @@ Before you submit, make sure everything runs as expected.
 You can add sections as you see fit. Make sure you have a section called "Introduction" at the beginning and a section called "Conclusion" at the end. The rest is up to you!
 
 _Make use of your knowledge of Markdown to appropriately typeset this report!_
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+games <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv")
+```
+
+```{r}
+starbucks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
+```
+```{r}
+chocolate <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-18/chocolate.csv')
+```
+```{r}
+glimpse(chocolate)
+```
+
+```{r}
+chocolate %>% 
+  distinct(company_manufacturer)
+
+```
+
