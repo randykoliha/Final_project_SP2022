@@ -9,6 +9,8 @@ output: html_notebook
 
 Include a brief **introduction or motivation** here
 
+We want to analyze a dataset regarding chocolate to dive deep into the answers of some big questions we have as to what and why are the things the way they are.
+
 ## Section 2. Data Analysis Plan
 
 List any **initial questions** you plan to explore in this project. 
