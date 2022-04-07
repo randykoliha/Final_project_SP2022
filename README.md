@@ -6,7 +6,7 @@ Team members:
 
 - Student 1: [Randy Koliha](mailto:rkoliha9653@floridapoly.edu)
 
-- Student 2: [Student name](mailto:student2@floridapoly.edu)
+- Student 2: [Owen Telis](mailto:otelis0019@floridapoly.edu)
 
 - Student 3: [Student name](mailto:student3@floridapoly.edu)
 
