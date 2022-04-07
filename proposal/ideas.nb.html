@@ -1751,19 +1751,27 @@ pre code {
 <div id="section-1.-introduction" class="section level2">
 <h2>Section 1. Introduction</h2>
 <p>Include a brief <strong>introduction or motivation</strong> here</p>
-<p>We want to analyze a dataset regarding chocolate to dive deep into the answers of some big questions we have as to what and why are the things the way they are.</p>
+<p>We want to analyze a dataset regarding Steam games to dive deep into the answers of some big questions we have as to what and why are the things the way they are.</p>
 </div>
 <div id="section-2.-data-analysis-plan" class="section level2">
 <h2>Section 2. Data Analysis Plan</h2>
 <p>List any <strong>initial questions</strong> you plan to explore in this project.</p>
+<ol style="list-style-type: decimal">
+<li>Can we prove that games generally lose popularity over time?</li>
+<li>Do (and which) some games gain more popularity over time?</li>
+<li>Which games have drastic drops or rises in popularity?</li>
+<li>By how much has the total number of players risen or dropped throughout the years?</li>
+<li>Do big releases increase the total amount of players in a given year or month?</li>
+</ol>
 </div>
 <div id="section-3.-data" class="section level2">
 <h2>Section 3. Data</h2>
 <p>Include a brief <strong>description of your dataset</strong> (source, available attributes, format, etc.)</p>
+<p>The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years 2012-2021. The data set has records of 1258 games, and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoobm90aWNlIHRoYXQgeW91IGNhbiByZXVzZSBzb21lIG9mIHRoZSBzZWN0aW9ucyBiZWxvdyBmb3IgdGhlIGZpbmFsIHByb2plY3QgcmVwb3J0KQ0KDQojIyBTZWN0aW9uIDEuIEludHJvZHVjdGlvbg0KDQpJbmNsdWRlIGEgYnJpZWYgKippbnRyb2R1Y3Rpb24gb3IgbW90aXZhdGlvbioqIGhlcmUNCg0KV2Ugd2FudCB0byBhbmFseXplIGEgZGF0YXNldCByZWdhcmRpbmcgY2hvY29sYXRlIHRvIGRpdmUgZGVlcCBpbnRvIHRoZSBhbnN3ZXJzIG9mIHNvbWUgYmlnIHF1ZXN0aW9ucyB3ZSBoYXZlIGFzIHRvIHdoYXQgYW5kIHdoeSBhcmUgdGhlIHRoaW5ncyB0aGUgd2F5IHRoZXkgYXJlLg0KDQojIyBTZWN0aW9uIDIuIERhdGEgQW5hbHlzaXMgUGxhbg0KDQpMaXN0IGFueSAqKmluaXRpYWwgcXVlc3Rpb25zKiogeW91IHBsYW4gdG8gZXhwbG9yZSBpbiB0aGlzIHByb2plY3QuIA0KDQojIyBTZWN0aW9uIDMuIERhdGENCg0KSW5jbHVkZSBhIGJyaWVmICoqZGVzY3JpcHRpb24gb2YgeW91ciBkYXRhc2V0KiogKHNvdXJjZSwgYXZhaWxhYmxlIGF0dHJpYnV0ZXMsIGZvcm1hdCwgZXRjLikNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2plY3QgUHJvcG9zYWwiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoobm90aWNlIHRoYXQgeW91IGNhbiByZXVzZSBzb21lIG9mIHRoZSBzZWN0aW9ucyBiZWxvdyBmb3IgdGhlIGZpbmFsIHByb2plY3QgcmVwb3J0KQ0KDQojIyBTZWN0aW9uIDEuIEludHJvZHVjdGlvbg0KDQpJbmNsdWRlIGEgYnJpZWYgKippbnRyb2R1Y3Rpb24gb3IgbW90aXZhdGlvbioqIGhlcmUNCg0KV2Ugd2FudCB0byBhbmFseXplIGEgZGF0YXNldCByZWdhcmRpbmcgU3RlYW0gZ2FtZXMgdG8gZGl2ZSBkZWVwIGludG8gdGhlIGFuc3dlcnMgb2Ygc29tZSBiaWcgcXVlc3Rpb25zIHdlIGhhdmUgYXMgdG8gd2hhdCBhbmQgd2h5IGFyZSB0aGUgdGhpbmdzIHRoZSB3YXkgdGhleSBhcmUuDQoNCiMjIFNlY3Rpb24gMi4gRGF0YSBBbmFseXNpcyBQbGFuDQoNCkxpc3QgYW55ICoqaW5pdGlhbCBxdWVzdGlvbnMqKiB5b3UgcGxhbiB0byBleHBsb3JlIGluIHRoaXMgcHJvamVjdC4gDQoNCjEuIENhbiB3ZSBwcm92ZSB0aGF0IGdhbWVzIGdlbmVyYWxseSBsb3NlIHBvcHVsYXJpdHkgb3ZlciB0aW1lPw0KMi4gRG8gKGFuZCB3aGljaCkgc29tZSBnYW1lcyBnYWluIG1vcmUgcG9wdWxhcml0eSBvdmVyIHRpbWU/DQozLiBXaGljaCBnYW1lcyBoYXZlIGRyYXN0aWMgZHJvcHMgb3IgcmlzZXMgaW4gcG9wdWxhcml0eT8NCjQuIEJ5IGhvdyBtdWNoIGhhcyB0aGUgdG90YWwgbnVtYmVyIG9mIHBsYXllcnMgcmlzZW4gb3IgZHJvcHBlZCB0aHJvdWdob3V0IHRoZSB5ZWFycz8NCjUuIERvIGJpZyByZWxlYXNlcyBpbmNyZWFzZSB0aGUgdG90YWwgYW1vdW50IG9mIHBsYXllcnMgaW4gYSBnaXZlbiB5ZWFyIG9yIG1vbnRoPw0KDQojIyBTZWN0aW9uIDMuIERhdGENCg0KSW5jbHVkZSBhIGJyaWVmICoqZGVzY3JpcHRpb24gb2YgeW91ciBkYXRhc2V0KiogKHNvdXJjZSwgYXZhaWxhYmxlIGF0dHJpYnV0ZXMsIGZvcm1hdCwgZXRjLikNCg0KVGhlIGdhbWVzLmNzdiBkYXRhc2V0IGhhcyBkYXRhIGNvbGxlY3RlZCBmb3IgZ2FtZXMgb24gdGhlIHBvcHVsYXIgZ2FtZSBsaWNlbnNlIHNlbGxpbmcgcGxhdGZvcm0sIFN0ZWFtLCBvdmVyIHRoZSBtb250aHMgZnJvbSB0aGUgeWVhcnMgMjAxMi0yMDIxLiBUaGUgZGF0YSBzZXQgaGFzIHJlY29yZHMgb2YgMTI1OCBnYW1lcywgYW5kIGluY2x1ZGVzIHRoZWlyIHRpdGxlcywgbW9udGhseSBwbGF5ZXIgcGVha3MsIG1vbnRobHkgYXZlcmFnZSBwbGF5ZXJzIGF0IHRoZSBzYW1lIHRpbWUsIG1vbnRobHkgZ2FpbnMvbG9zc2VzIG9mIHBsYXllcnMgY29tcGFyZWQgdG8gdGhlIHByZXZpb3VzIG1vbnRoLCBhbmQgdGhlIHBlcmNlbnRhZ2Ugb2YgaG93IGNsb3NlbHkgdGhlIGF2ZXJhZ2UgcGxheWVycyBhcHByb2FjaCB0aGUgcGVhay4=</div>
 
 
 
