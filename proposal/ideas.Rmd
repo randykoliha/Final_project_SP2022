@@ -9,7 +9,7 @@ output: html_notebook
 
 Include a brief **introduction or motivation** here
 
-We want to analyze a dataset regarding Steam games to dive deep into the answers of some big questions we have as to what and why are the things the way they are.
+We want to analyze a dataset regarding Steam games to dive deep into the behavior of gamers.
 
 ## Section 2. Data Analysis Plan
 
@@ -20,6 +20,7 @@ List any **initial questions** you plan to explore in this project.
 3. Which games have drastic drops or rises in popularity?
 4. By how much has the total number of players risen or dropped throughout the years?
 5. Do big releases increase the total amount of players in a given year or month?
+6. Is there a uniform pattern of lowering popularity for all titles?
 
 ## Section 3. Data
 
