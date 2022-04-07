@@ -8,7 +8,7 @@ Team members:
 
 - Student 2: [Owen Telis](mailto:otelis0019@floridapoly.edu)
 
-- Student 3: [Student name](mailto:student3@floridapoly.edu)
+- Student 3: [Isaiah Sarria](mailto:isarria0168@floridapoly.edu)
 
 
 **Summary**
