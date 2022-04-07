@@ -9,12 +9,20 @@ output: html_notebook
 
 Include a brief **introduction or motivation** here
 
-We want to analyze a dataset regarding chocolate to dive deep into the answers of some big questions we have as to what and why are the things the way they are.
+We want to analyze a dataset regarding Steam games to dive deep into the answers of some big questions we have as to what and why are the things the way they are.
 
 ## Section 2. Data Analysis Plan
 
 List any **initial questions** you plan to explore in this project. 
 
+1. Can we prove that games generally lose popularity over time?
+2. Do (and which) some games gain more popularity over time?
+3. Which games have drastic drops or rises in popularity?
+4. By how much has the total number of players risen or dropped throughout the years?
+5. Do big releases increase the total amount of players in a given year or month?
+
 ## Section 3. Data
 
 Include a brief **description of your dataset** (source, available attributes, format, etc.)
+
+The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years 2012-2021. The data set has records of 1258 games, and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
