@@ -2,7 +2,7 @@
 title: "Final Report for Intro to Data Science"
 output: html_notebook
 ---
-ISAIAH
+
 This is where the final project report write-up goes. 
 
 
@@ -16,24 +16,13 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 library(tidyverse)
 ```
 
-
 ```{r}
 games <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv")
 ```
 
 ```{r}
-starbucks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
-```
-```{r}
-chocolate <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-18/chocolate.csv')
-```
-```{r}
-glimpse(chocolate)
+games %>% 
+  distinct(gamename)
 ```
 
-```{r}
-chocolate %>% 
-  distinct(company_manufacturer)
-
-```
 
