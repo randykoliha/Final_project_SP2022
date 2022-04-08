@@ -14,6 +14,6 @@ Team members:
 
 **Summary**
 
-Our project investigates the main characteristics of popular movies in recent years.
+Our project investigates the main characteristics of popular Steam games over recent years.
 We will be using the data available at: 
-<https://github.com/reisanar/datasets/blob/master/IMDB_movies.csv> 
+<https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv>
