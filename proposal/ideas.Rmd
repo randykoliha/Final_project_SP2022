@@ -27,3 +27,11 @@ List any **initial questions** you plan to explore in this project.
 Include a brief **description of your dataset** (source, available attributes, format, etc.)
 
 The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years 2012-2021. The data set has records of 1258 games, and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
+
+
+
+## Section 3.2 General Plan
+
+Describe you general plan with next steps for completing the EDA.
+
+Most of our current exploratory questions are regarding the trends of gamers and what they are playing. So, we are expecting to see a lot of line graphs to clearly see dips and peaks for these behavior patterns. We also expect to see dips of the popularity of games being followed by high player counts of new releases that are of a similar genre. Of course, in the event more interesting and distinct questions are thought of, we may explore other approaches of analysis.
