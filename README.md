@@ -6,13 +6,14 @@ Team members:
 
 - Student 1: [Randy Koliha](mailto:rkoliha9653@floridapoly.edu)
 
-- Student 2: [Student name](mailto:student2@floridapoly.edu)
+- Student 2: [Owen Telis](mailto:otelis0019@floridapoly.edu)
 
-- Student 3: [Student name](mailto:student3@floridapoly.edu)
+- Student 3: [Isaiah Sarria](mailto:isarria0168@floridapoly.edu)
 
+- Student 3: [John Levitt](mailto:jlevitt7019@floridapoly.edu)
 
 **Summary**
 
-Our project investigates the main characteristics of popular movies in recent years.
+Our project investigates the main characteristics of popular Steam games over recent years.
 We will be using the data available at: 
-<https://github.com/reisanar/datasets/blob/master/IMDB_movies.csv> 
+<https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv>
