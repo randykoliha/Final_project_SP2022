@@ -70,7 +70,7 @@ dist_g
 1. Can we prove that games generally lose popularity over time?
 
 ```{r}
-<<<<<<< HEAD
+
 
 g_rust <- games %>% 
   filter(gamename == "Rust") %>% 
@@ -155,16 +155,6 @@ ggplot(data = g_top50) +
 
 ```
 
-=======
-  games %>% 
-  filter(is.na(gain)) %>%
-  mutate(Release_date = paste(year, month)) %>% 
-  select(gamename, Release_date)
-```
-```{r}
-games
->>>>>>> c022a61e6f91f3862b34ac4b1147add7e4143e3e
-```
 
 
 
