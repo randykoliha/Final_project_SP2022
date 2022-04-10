@@ -17,7 +17,7 @@ List any **initial questions** you plan to explore in this project.
 
 1. Can we prove that games generally lose popularity over time?
 2. Do (and which) some games gain more popularity over time?
-3. Which games have drastic drops or rises in popularity?
+3. Which year do games have drastic drops or rises in popularity?
 4. By how much has the total number of players risen or dropped throughout the years?
 5. Do big releases increase the total amount of players in a given year or month?
 6. Is there a uniform pattern of lowering popularity for all titles?
