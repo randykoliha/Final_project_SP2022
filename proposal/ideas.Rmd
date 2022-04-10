@@ -21,6 +21,7 @@ List any **initial questions** you plan to explore in this project.
 4. By how much has the total number of players risen or dropped throughout the years?
 5. Do big releases increase the total amount of players in a given year or month?
 6. Is there a uniform pattern of lowering popularity for all titles?
+7. Do the release dates and peaks or player counts have a relationship?
 
 ## Section 3. Data
 
