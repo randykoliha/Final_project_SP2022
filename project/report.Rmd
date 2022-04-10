@@ -59,12 +59,22 @@ games <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday
 
 ```{r}
 # Finding the distinct number of `gamenames`
-games %>% 
+ dist_g <- games %>% 
   distinct(gamename)
+
+dist_g
 ```
 
 
 ```{r}
-
+  games %>% 
+  filter(is.na(gain)) %>%
+  mutate(Release_date = paste(year, month)) %>% 
+  select(gamename, Release_date)
 ```
+```{r}
+games
+```
+
+
 
