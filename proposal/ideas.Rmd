@@ -22,6 +22,8 @@ List any **initial questions** you plan to explore in this project.
 5. Do big releases increase the total amount of players in a given year or month?
 6. Is there a uniform pattern of lowering popularity for all titles?
 7. Do the release dates and peaks or player counts have a relationship?
+8. Studios trend based on most popular games per year.
+9. mutate esport true/false for respective titles - track esport over the years.
 
 ## Section 3. Data
 
