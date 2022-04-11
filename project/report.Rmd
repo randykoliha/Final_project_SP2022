@@ -107,16 +107,19 @@ ggplot(data = g_gta5) +
 ```{r}
 g_rim <- games %>% 
   filter(gamename == "RimWorld") %>% 
-  filter(month == "November") 
+  filter(year == 2020) 
 
 
 
 
-ggplot(data = g_rim) +
-  geom_line(aes(x = year, y = avg))
+plot_rim<- ggplot(data = g_rim) +
+  geom_line(aes(x = month, y = avg, group = 1))
+
+
 ```
 
 ```{r}
+
 g_m_underTale <- games %>% 
   filter(gamename == "Undertale") %>% 
   filter(month == "November") 
@@ -125,16 +128,30 @@ ggplot(data = g_m_underTale) +
   geom_line(aes(x = year, y = avg))
 
 
+
 g_y_underTale <- games %>% 
   filter(gamename == "Undertale") %>% 
   filter(year == 2020) 
 
 g_y_underTale
 
-ggplot(data = g_y_underTale ) +
-  geom_point(aes( y = avg, x = month))
+plot_undertale <- ggplot(data = g_y_underTale) +
+  geom_line(aes( y = avg, x = month, group = 1))
+  
+  
+  
 
 
+```
+
+```{r}
+rim_and_under = ggplot() + 
+  geom_line(data = g_rim, aes(x = month, y = avg, group = 1), color = "blue") +
+  geom_line(data = g_y_underTale, aes(x = month, y = avg, group = 1), color = "red") +
+  xlab("month") +
+  ylab("avg players")
+
+print(rim_and_under)
 ```
 
 
