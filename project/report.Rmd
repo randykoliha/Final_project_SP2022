@@ -19,7 +19,7 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 
 ## Group Members
 
-- Randy Kohila
+- Randy Koliha
 
 - Isaiah Sarria
 
