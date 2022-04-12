@@ -10,7 +10,7 @@ Team members:
 
 - Student 3: [Isaiah Sarria](mailto:isarria0168@floridapoly.edu)
 
-- Student 3: [John Levitt](mailto:jlevitt7019@floridapoly.edu)
+- Student 4: [John Levitt](mailto:jlevitt7019@floridapoly.edu)
 
 **Summary**
 
