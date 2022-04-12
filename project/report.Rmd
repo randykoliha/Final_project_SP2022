@@ -72,16 +72,12 @@ dist_g
 ```{r}
 
 
-g_apex <- games %>% 
+g_payday <- games %>% 
   filter(gamename == "PAYDAY 2") %>% 
-  filter(year %in% c(2018,2019,2020)) 
+  filter(year %in% c(2019, 2020)) 
+g_payday
 
-
-g_apex
-
-ggplot(data = g_apex) +
-  geom_line(aes(x = year, y = avg ))
-
+ggplot(g_payday, aes(x = month, y = avg, group = 1, color = year)) + geom_line() 
  
 ```
 
