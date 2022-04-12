@@ -72,15 +72,15 @@ dist_g
 ```{r}
 
 
-g_rust <- games %>% 
-  filter(gamename == "Rust") %>% 
-  filter(month == "November") 
+g_apex <- games %>% 
+  filter(gamename == "PAYDAY 2") %>% 
+  filter(year %in% c(2018,2019,2020)) 
 
 
-g_rust
+g_apex
 
-ggplot(data = g_rust) +
-  geom_line(aes(x = year, y = avg))
+ggplot(data = g_apex) +
+  geom_line(aes(x = year, y = avg ))
 
  
 ```
@@ -90,13 +90,13 @@ ggplot(data = g_rust) +
 
 g_gta5 <- games %>% 
   filter(gamename == "Grand Theft Auto V") %>% 
-  filter(month == "November") 
+  filter(year == 2020) 
 
-
+g_gta5
 
 
 ggplot(data = g_gta5) +
-  geom_line(aes(x = year, y = avg))
+  geom_line(aes(x = month, y = avg, group = 1))
 
  
 ```
@@ -115,6 +115,7 @@ g_rim <- games %>%
 plot_rim<- ggplot(data = g_rim) +
   geom_line(aes(x = month, y = avg, group = 1))
 
+plot_rim
 
 ```
 
@@ -164,14 +165,18 @@ g_top50 <- games %>%
   filter(year == 2021) %>% 
   filter(month == "February") %>% 
   arrange(desc(avg)) %>% 
-  head(2)
+ head(50)
 
 
 ggplot(data = g_top50) +
-  geom_line(aes(x = gamename, y = avg))
+  geom_line(aes(x = gamename, y = avg, group = 1))
 
 ```
 
 
 
+```{r}
+games %>% 
+  filter(gamename == "Counter-Strike: Global Offensive")
+```
 
