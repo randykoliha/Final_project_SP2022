@@ -77,7 +77,7 @@ g_payday <- games %>%
   filter(year %in% c(2019, 2020)) 
 g_payday
 
-ggplot(g_payday, aes(x = month, y = avg, group = 1, color = year)) + geom_line() 
+ggplot(g_payday, aes(x = month, y = avg, group = year)) + geom_line() 
  
 ```
 
