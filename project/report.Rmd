@@ -71,15 +71,22 @@ dist_g
 
 ```{r}
 
-
 g_payday <- games %>% 
   filter(gamename == "PAYDAY 2") %>% 
-  filter(year %in% c(2019, 2020)) 
+  filter(year %in% c(2012:2021)) 
 g_payday
 
-ggplot(g_payday, aes(x = month, y = avg, group = year)) + geom_line() 
- 
+ggplot(g_payday, aes(x = month, y = avg, group = year, color = year)) + geom_line() +geom_point() 
 ```
+
+
+```{r}
+ggplot(g_payday,aes(x = month,y = avg,group = year, color = as.factor(year))) +
+  scale_colour_manual(values=c("#ff0000","#ff7300","blue", "purple", "orange", "yellow", "black", "#64b8d1", "pink", "brown" )) +
+  geom_line(size = 1)
+```
+
+
 
 ```{r}
 
