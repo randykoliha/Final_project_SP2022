@@ -3,6 +3,11 @@ title: "Project Proposal"
 output: html_notebook
 ---
 
+Team Members(4): Owen Telis, Randy Koliha, Isaiah Sarria, John Levitt 
+
+our dataset: <https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-03-16/games.csv>
+
+
 (notice that you can reuse some of the sections below for the final project report)
 
 ## Section 1. Introduction
@@ -18,12 +23,13 @@ List any **initial questions** you plan to explore in this project.
 1. Can we prove that games generally lose popularity over time?
 2. Do (and which) some games gain more popularity over time?
 3. Which year do games have drastic drops or rises in popularity?
-4. By how much has the total number of players risen or dropped throughout the years?
+4. By how much has the total number of players risen or dropped on steam throughout the years?
 5. Do big releases increase the total amount of players in a given year or month?
 6. Is there a uniform pattern of lowering popularity for all titles?
 7. Do the release dates and peaks or player counts have a relationship?
 8. Studios trend based on most popular games per year.
-9. mutate esport true/false for respective titles - track esport over the years.
+9. mutate esport true/false for respective titles - track esport over the years to see if there is growth.
+10.Is there a seasonality when it comes to avg players for most titles.
 
 ## Section 3. Data
 
@@ -32,9 +38,11 @@ Include a brief **description of your dataset** (source, available attributes, f
 The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years 2012-2021. The data set has records of 1258 games, and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
 
 
-
 ## Section 3.2 General Plan
 
 Describe you general plan with next steps for completing the EDA.
 
-Most of our current exploratory questions are regarding the trends of gamers and what they are playing. So, we are expecting to see a lot of line graphs to clearly see dips and peaks for these behavior patterns. We also expect to see dips of the popularity of games being followed by high player counts of new releases that are of a similar genre. Of course, in the event more interesting and distinct questions are thought of, we may explore other approaches of analysis. We would also like to see if there is a relationship with the release date and the highest peak(s) of players by adding a column of release dates. The game's Steam release date (at least in terms of months) would be found with the NA values of the data that reflects "monthly gains/losses of players compared to the previous month", because the "NA" represents no data collected due to the game not being out on Steam during the previous month.
+To clean up our data we should make the month a class date or int, the reason for this is the data set puts the months in descending order and its hard to arrange the months and plot them in a correct fashion. Most of our current exploratory questions are regarding the trends of gamers and what they are playing. So, we are expecting to see a lot of line graphs to clearly see dips and peaks for these behavior patterns. We also expect to see dips of the popularity of games being followed by high player counts of new releases that are of a similar genre. Of course, in the event more interesting and distinct questions are thought of, we may explore other approaches of analysis. We would also like to see if there is a relationship with the release date and the highest peak(s) of players by adding a column of release dates. The game's Steam release date (at least in terms of months) would be found with the NA values of the data that reflects "monthly gains/losses of players compared to the previous month", because the "NA" represents no data collected due to the game not being out on Steam during the previous month.
+
+
+
