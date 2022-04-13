@@ -41,7 +41,7 @@ Loading any needed packages.
 
 ```{r}
 library(tidyverse)
-
+library(lubridate)
 ```
 
 
@@ -66,6 +66,51 @@ games <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday
 dist_g
 ```
 
+cleaning up months
+
+```{r}
+games$month <- as.Date(games$month)
+```
+
+
+
+```{r}
+games %>% 
+  as.integer(factor(month, levels = month.name))
+```
+```{r}
+one_day <- games %>% 
+  filter(gamename == "Counter-Strike: Global Offensive", year == 2021, month == "February")
+```
+
+```{r}
+one_day$month <- as.numeric(one_day$month)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 1. Can we prove that games generally lose popularity over time?
 
@@ -85,6 +130,12 @@ ggplot(g_payday,aes(x = month,y = avg,group = year, color = as.factor(year))) +
   scale_colour_manual(values=c("#ff0000","#ff7300","blue", "purple", "orange", "yellow", "black", "#64b8d1", "pink", "brown" )) +
   geom_line(size = 1)+geom_point()
 ```
+
+
+
+
+
+
 
 
 
