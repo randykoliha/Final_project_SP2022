@@ -42,6 +42,7 @@ Loading any needed packages.
 ```{r}
 library(tidyverse)
 library(lubridate)
+library(scales)
 ```
 
 
@@ -58,6 +59,17 @@ games <- read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday
 ```
 
 
+>cleaning up months
+
+```{r}
+games <- games %>% 
+  mutate( number_of_month = match(games[1:83631,3], month.name) ) %>% 
+  select(gamename,year,number_of_month,everything()) %>% 
+  arrange(desc(year), number_of_month)
+  games
+```
+>How many games are in the data set
+
 ```{r}
 # Finding the distinct number of `gamenames`
  dist_g <- games %>% 
@@ -69,53 +81,7 @@ dist_g
 
 
 
-
-
-
-
-cleaning up months
-
-
-
-
-
-```{r}
-one_day <- games %>% 
-  filter(gamename == "Counter-Strike: Global Offensive", year == 2021, month == "February")
-```
-
-
-
-
-```{r}
-games <- games %>% 
-  mutate( number_of_month = match(games[1:83631,3], month.name) )
-    
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1. Can we prove that games generally lose popularity over time?
+>1. Can we prove that games generally lose popularity over time?
 
 ```{r}
 
@@ -129,10 +95,19 @@ ggplot(g_payday, aes(x = number_of_month, y = avg, group = year, color = year)) 
 
 
 ```{r}
-ggplot(g_payday,aes(x = number_of_month,y = avg,group = year, color = as.factor(year))) +
-  scale_colour_manual(values=c("#ff0000","#ff7300","blue", "purple", "orange", "yellow", "black", "#64b8d1", "pink", "brown" )) +
-  geom_line(size = 1)+geom_point()
+ggplot(g_payday,aes(x = number_of_month,y = avg, group = year, color = as.factor(year))) +
+  
+geom_line(size = 1)+geom_point()+ 
+  
+scale_colour_manual(values=c("#ffffff","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) 
+  
+  
+# Dr. sanchez gave me an email to help me with the x or y scales gotta check   
+
 ```
+
+
+![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
 
 
 
