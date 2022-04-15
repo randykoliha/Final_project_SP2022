@@ -16,7 +16,6 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 ------------------------------------------------------------------------------------------------------------------------
 # Final Report for Intro to Data Science: Steam Games
 
-
 ## Group Members
 
 - Randy Koliha
