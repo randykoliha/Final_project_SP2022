@@ -100,16 +100,9 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 ![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
 
-
+> growth of users overtime
 
 ```{r}
-
-games_seas <- games %>% 
-  filter(year %in% c(2013:2020)) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg), year)
-games_seas
-
 games_2015 <- games %>% 
   filter(year %in% c(2012:2020)) %>% 
   group_by(year) %>% 
@@ -118,111 +111,4 @@ ggplot(data = games_2015) +
   geom_line(aes(x = year, y = avg_month)) +
   geom_point(aes(x = year, y = avg_month)) +
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) 
-
-
-
-Years_Games_Seas <- as.factor(games_seas$year)
-ggplot(games_seas,aes(x = number_of_month,y = avg_month, group = year, color = Years_Games_seas)) +
-geom_line(size = 1) +
-geom_point()+ 
-scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
-geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
-scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
-  xlab("Months")+
-  ylab("Average Players")
-
 ```
-
-```{r}
-games_2013 <- games %>% 
-  filter(year %in% 2013) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2014 <- games %>% 
-  filter(year %in% 2014) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2015 <- games %>% 
-  filter(year %in% 2015) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2016 <- games %>% 
-  filter(year %in% 2016) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2017 <- games %>% 
-  filter(year %in% 2017) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2018 <- games %>% 
-  filter(year %in% 2018) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2019 <- games %>% 
-  filter(year %in% 2019) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2020 <- games %>% 
-  filter(year %in% 2020) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-games_2014
-```
-
-```{r}
-g_seasonality <- games %>% 
-games_2013 <- g_seasonality %>% 
-  filter(year %in% 2013) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2014 <- games_2013 %>% 
-  filter(year %in% 2014) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2015 <- games_2014 %>% 
-  filter(year %in% 2015) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2016 <- games_2015 %>% 
-  filter(year %in% 2016) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2017 <- games_2016 %>% 
-  filter(year %in% 2017) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2018 <- games_2017 %>% 
-  filter(year %in% 2018) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2019 <- games_2018 %>% 
-  filter(year %in% 2019) %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-games_2020 <- games_2019 %>% 
-  group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg)) %>% 
-  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
-g_seasonality
-
-#makes the Seasonality data frame  
-
-Years_Payday2 <- as.factor(g_payday$year)
-ggplot(g_payday,aes(x = number_of_month,y = avg, group = year, color = Years_Payday2)) +
-geom_line(size = 1) +
-geom_point()+ 
-scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
-geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
-scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
-  xlab("Months")+
-  ylab("Average Players")
-```
-
-
-
-
-
-
-
-
-
