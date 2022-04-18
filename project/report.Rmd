@@ -101,8 +101,24 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 ![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
 
+> Test
+gamename <- c("Counter-Strike: Global Offensive",
+"Dota 2",
+"PLAYERUNKNOWN'S BATTLEGROUNDS",
+"Apex Legends",
+"Rust",
+"Team Fortress 2")
 
+is_esport <- c(TRUE, TRUE, TRUE, TRUE, FALSE, TRUE)
 
+esport_df <- data.frame(gamename, is_esport)
+
+esport_df
+
+df_list <- list(games, esport_df)
+
+df_list %>% 
+  reduce(full_join, by='gamename')
 
 
 
