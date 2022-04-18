@@ -87,7 +87,7 @@ g_payday
 
 Years_Payday2 <- as.factor(g_payday$year)
 ggplot(g_payday,aes(x = number_of_month,y = avg, group = year, color = Years_Payday2)) +
-geom_line(size = 1)+
+geom_line(size = 1) +
 geom_point()+ 
 scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
@@ -99,6 +99,20 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 ```
 
 ![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
+
+
+```{r}
+games %>% 
+  filter(year == "2015") %>% 
+  group_by(number_of_month) %>% 
+  summarise(avg_month = sum(avg))
+  
+```
+
+
+
+
+
 
 
 
