@@ -146,7 +146,7 @@ ggplot(data = games_2015) +
 
 
 
-> growth of users overtime!
+> Question 2, Jack:  growth of users overtime!
 
 ```{r}
 games_2015 <- games %>% 
@@ -158,3 +158,47 @@ ggplot(data = games_2015) +
   geom_point(aes(x = year, y = avg_month)) +
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) 
 ```
+
+
+> Question 3, Randy:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> Question 4, Owen:
