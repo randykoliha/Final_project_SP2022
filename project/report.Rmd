@@ -73,7 +73,7 @@ games <- games %>%
 dist_g
 ```
 
-> 1. Can we prove that games generally follow seasonal changes?
+> 1. Do games lose popularity overtime?
 
 ### Case 1
 
@@ -110,8 +110,8 @@ g_pubg <- games %>%
   filter(year %in% c(2017:2021)) %>% 
   mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
 g_pubg
-```
-```{r}
+
+
 Years_PUBG2 <- as.factor(g_pubg$year)
 ggplot(g_pubg,aes(x = number_of_month,y = avg, group = year, color = Years_PUBG2)) +
 geom_line(size = 1) +
@@ -123,39 +123,32 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
   ylab("Average Players")
 ```
 
-### Case 3
+### Case 3 as the seasons change avg playship goes up and down depending on holidays: note from randy on this: i checked it in excel this is accurate.
 
 ```{r}
-
-```
-
-
-```{r}
-games_2015 <- games %>% 
-  filter(year == c(2012:2021)) %>% 
+games_growth <- games %>% 
+  filter(year %in% c(2012:2021)) %>% 
   group_by(number_of_month) %>% 
-  summarise(avg_month = sum(avg))
-ggplot(data = games_2015) +
-  geom_line(aes(x = number_of_month, y = avg_month)) +
+  summarise(avg_month_sum = sum(avg)) 
+ggplot(data = games_growth) +
+  geom_line(aes(x = number_of_month, y = avg_month_sum),color = "blue", size = 1) +
+  geom_point(aes(x = number_of_month, y = avg_month_sum),color = "red", size = 3)+
   scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))
-
+games_growth
 ```
 
 
 
-
-
-
-> Question 2, Jack:  growth of users overtime!
+> Question 2 growth of users overtime!
 
 ```{r}
-games_2015 <- games %>% 
+games_user_growth <- games %>% 
   filter(year %in% c(2012:2020)) %>% 
   group_by(year) %>% 
-  summarise(avg_month = sum(avg))
-ggplot(data = games_2015) +
-  geom_line(aes(x = year, y = avg_month)) +
-  geom_point(aes(x = year, y = avg_month)) +
+  summarise(avg_month_all_years = sum(avg))
+ggplot(data = games_user_growth) +
+  geom_line(aes(x = year, y = avg_month_all_years),color = "blue", size = 1) +
+  geom_point(aes(x = year, y = avg_month_all_years),color = "red", size = 3) +
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) 
 ```
 
@@ -167,38 +160,7 @@ ggplot(data = games_2015) +
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 > Question 4, Owen:
+
+
+
