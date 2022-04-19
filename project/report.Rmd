@@ -73,7 +73,7 @@ games <- games %>%
 dist_g
 ```
 
-> 1. Do games lose popularity overtime?
+> 1. Do games lose popularity overtime? Does multiplayer/esports titles and single player games differ?
 
 ### Case 1
 
@@ -112,8 +112,8 @@ g_pubg <- games %>%
 g_pubg
 
 
-Years_PUBG2 <- as.factor(g_pubg$year)
-ggplot(g_pubg,aes(x = number_of_month,y = avg, group = year, color = Years_PUBG2)) +
+Years_PUBG <- as.factor(g_pubg$year)
+ggplot(g_pubg,aes(x = number_of_month,y = avg, group = year, color = Years_PUBG)) +
 geom_line(size = 1) +
 geom_point()+ 
 scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
@@ -122,6 +122,115 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
   xlab("Months")+
   ylab("Average Players")
 ```
+```{r}
+g_csgo <- games %>% 
+  filter(gamename == "Counter-Strike: Global Offensive") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_csgo
+
+
+Years_csgo <- as.factor(g_csgo$year)
+ggplot(g_csgo,aes(x = number_of_month,y = avg, group = year, color = Years_csgo)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players")
+```
+
+
+```{r}
+g_gtav <- games %>% 
+  filter(gamename == "Grand Theft Auto V") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_gtav
+
+
+Years_gtav <- as.factor(g_gtav$year)
+ggplot(g_gtav,aes(x = number_of_month,y = avg, group = year, color = Years_gtav)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players")
+```
+
+```{r}
+g_dota2 <- games %>% 
+  filter(gamename == "Dota 2") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_dota2
+
+
+Years_dota2 <- as.factor(g_dota2$year)
+ggplot(g_dota2,aes(x = number_of_month,y = avg, group = year, color = Years_dota2)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players")
+```
+
+
+
+###As you can see when it comes to single player games dip after launch 
+
+
+
+```{r}
+g_fallout4 <- games %>% 
+  filter(gamename == "Fallout 4") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_fallout4
+
+
+Years_fallout4 <- as.factor(g_fallout4$year)
+ggplot(g_fallout4,aes(x = number_of_month,y = avg, group = year, color = Years_fallout4)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players")
+```
+
+
+
+
+```{r}
+g_farcry5 <- games %>% 
+  filter(gamename == "Far Cry 5") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_farcry5
+
+
+Years_farcry5 <- as.factor(g_farcry5$year)
+ggplot(g_farcry5,aes(x = number_of_month,y = avg, group = year, color = Years_farcry5)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players")
+```
+
+
+
+
+
 
 ### Case 3 as the seasons change avg playship goes up and down depending on holidays: note from randy on this: i checked it in excel this is accurate.
 
