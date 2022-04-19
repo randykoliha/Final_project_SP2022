@@ -29,7 +29,7 @@ List any **initial questions** you plan to explore in this project.
 7. Do the release dates and peaks or player counts have a relationship?
 8. Studios trend based on most popular games per year.
 9. mutate esport true/false for respective titles - track esport over the years to see if there is growth.
-10.Is there a seasonality when it comes to avg players for most titles.
+10. Is there a seasonality when it comes to avg players for most titles.
 
 ## Section 3. Data
 
