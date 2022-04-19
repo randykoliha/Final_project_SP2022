@@ -209,8 +209,6 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 > This data shows that singleplayer titles seem to have a drastic fall off in their player base following the launch of the game. This most likely occurs because once someone beats a single player game they are less likely to return to it. This can also be attributed to the fact that multiplayer/esports games are usally continually updated with new content single player game typically are less likely to receive these updates consistently.
 
-### Case 3 as the seasons change avg playship goes up and down depending on holidays: note from randy on this: i checked it in excel this is accurate.
-
 # **Question 2: Is the Steam platform effected by seasonality?**
 
 ```{r}
@@ -241,6 +239,8 @@ ggplot(data = games_user_growth) +
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) +
   scale_y_continuous(labels = comma)
 ```
+
+> Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
 
 > Question 4, Randy:
