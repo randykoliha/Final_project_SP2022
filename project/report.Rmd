@@ -247,7 +247,7 @@ ggplot(data = games_growth) +
 games_growth
 ```
 
-> This data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary we suspect occurs because individuals have completed the games they recieved during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam. The steep fall off we see in Feburary we suspect occurs because 
+> This data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary we suspect occurs because individuals have completed the games they recieved during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam.
 
 > Question 2 growth of users overtime!
 
