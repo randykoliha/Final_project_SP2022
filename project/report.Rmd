@@ -48,7 +48,6 @@ library(directlabels)
 
 The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years July 2012- Febuary 2021. The data set has records of 1258 games (also includes other miscellaneous pieces of software), and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
 
-
 >Running the data & cleaning up
 
 ```{r}
@@ -94,7 +93,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "Payday 2: Average Players by Year")
 
 #auto color pallet if + scale manual is removed
 ```
@@ -118,7 +118,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b",  "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "PLAYERUNKNOWN'S BATTLEGROUNDS: Average Players by Year")
 
 g_csgo <- games %>% 
   filter(gamename == "Counter-Strike: Global Offensive") %>% 
@@ -134,7 +135,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "Counter Strike: Global Offensive: Average Players by Year")
 
 g_gtav <- games %>% 
   filter(gamename == "Grand Theft Auto V") %>% 
@@ -150,7 +152,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "Grand Theft Auto V: Average Players by Year")
 
 g_dota2 <- games %>% 
   filter(gamename == "Dota 2") %>% 
@@ -167,7 +170,8 @@ geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", c
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
   ylab("Average Players") +
-  scale_y_continuous(labels = comma)
+  scale_y_continuous(labels = comma) +
+  labs(title = "DOTA 2: Average Players by Year")
 ```
 
 > This data shows that many multiplayer games seem to gain player over time and often have their peak average players occur in a period signficantly after the launch of the game.
@@ -188,7 +192,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "Fallout 4: Average Players by Year")
 
 g_farcry5 <- games %>% 
   filter(gamename == "Far Cry 5") %>% 
@@ -204,7 +209,8 @@ scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+
 geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
 scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
   xlab("Months")+
-  ylab("Average Players")
+  ylab("Average Players") +
+  labs(title = "Farcry 5: Average Players by Year")
 ```
 
 > This data shows that singleplayer titles seem to have a drastic fall off in their player base following the launch of the game. This most likely occurs because once someone beats a single player game they are less likely to return to it. This can also be attributed to the fact that multiplayer/esports games are usally continually updated with new content single player game typically are less likely to receive these updates consistently.
@@ -220,7 +226,10 @@ ggplot(data = games_growth) +
   geom_line(aes(x = number_of_month, y = avg_month_sum),color = "blue", size = 1) +
   geom_point(aes(x = number_of_month, y = avg_month_sum),color = "red", size = 3)+
   scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1)) +
-  scale_y_continuous(labels = comma)
+  scale_y_continuous(labels = comma) +
+  xlab("Months")+
+  ylab("Average Number of Players") +
+  labs(title = "Steam Seasonality")
 games_growth
 ```
 
@@ -237,7 +246,10 @@ ggplot(data = games_user_growth) +
   geom_line(aes(x = year, y = avg_month_all_years),color = "blue", size = 1) +
   geom_point(aes(x = year, y = avg_month_all_years),color = "red", size = 3) +
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) +
-  scale_y_continuous(labels = comma)
+  scale_y_continuous(labels = comma) +
+  xlab("Years")+
+  ylab("Average Number of Players") +
+  labs(title = "Steam Platform Growth")
 ```
 
 > Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
