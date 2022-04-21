@@ -66,10 +66,18 @@ games <- games %>%
 
 ```{r}
 # Finding the distinct number of `gamenames`
- dist_g <- games %>% 
-  distinct(gamename)
+dist_g <- games %>% 
+  distinct(gamename) 
 
 dist_g
+
+# in alpha order
+
+ dist_g_alpha <- games %>% 
+  distinct(gamename) %>% 
+  arrange(gamename)
+
+dist_g_alpha
 ```
 
 # **Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?**
@@ -211,6 +219,23 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
   xlab("Months")+
   ylab("Average Players") +
   labs(title = "Farcry 5: Average Players by Year")
+
+g_cyberpunk <- games %>% 
+  filter(gamename == "Cyberpunk 2077") %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  mutate(label = if_else(number_of_month == max(number_of_month), as.character(year), NA_character_))
+g_cyberpunk
+
+Years_cyberpunk <- as.factor(g_cyberpunk$year)
+ggplot(g_cyberpunk,aes(x = number_of_month,y = avg, group = year, color = Years_cyberpunk)) +
+geom_line(size = 1) +
+geom_point()+ 
+scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1))+ 
+geom_dl(aes(label = year), method = list(dl.trans(x = x + 0.1), "last.points", cex = 1)) +
+scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b", "#FF0004", "#4363d8", "#911eb4", "#f032e6", "#a9a9a9" )) +
+  xlab("Months")+
+  ylab("Average Players") +
+  labs(title = "Cyberpunk 2077: Average Players by Year")
 ```
 
 > This data shows that singleplayer titles seem to have a drastic fall off in their player base following the launch of the game. This most likely occurs because once someone beats a single player game they are less likely to return to it. This can also be attributed to the fact that multiplayer/esports games are usally continually updated with new content single player game typically are less likely to receive these updates consistently.
@@ -218,19 +243,38 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 # **Question 2: Is the Steam platform effected by seasonality?**
 
 ```{r}
-games_growth <- games %>% 
+games_seasons <- games %>% 
   filter(year %in% c(2012:2021)) %>% 
   group_by(number_of_month) %>% 
   summarise(avg_month_sum = sum(avg)) 
-ggplot(data = games_growth) +
+ggplot(data = games_seasons) +
   geom_line(aes(x = number_of_month, y = avg_month_sum),color = "blue", size = 1) +
   geom_point(aes(x = number_of_month, y = avg_month_sum),color = "red", size = 3)+
   scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1)) +
   scale_y_continuous(labels = comma) +
   xlab("Months")+
   ylab("Average Number of Players") +
-  labs(title = "Steam Seasonality")
-games_growth
+  labs(title = "Steam Seasonality using Avg. Players")
+games_seasons
+
+
+
+
+games_seasons_pk <- games %>% 
+  filter(year %in% c(2012:2021)) %>% 
+  group_by(number_of_month) %>% 
+  summarise(peak_month_sum = sum(peak)) 
+ggplot(data = games_seasons_pk) +
+  geom_line(aes(x = number_of_month, y = peak_month_sum),color = "blue", size = 1) +
+  geom_point(aes(x = number_of_month, y = peak_month_sum),color = "red", size = 3)+
+  scale_x_continuous(breaks = seq(1, 12, by = 1),expand=c(0, 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab("Months")+
+  ylab("Peak Number of Players") +
+  labs(title = "Steam Seasonality using Peak Players")
+games_seasons_pk
+
+
 ```
 
 > This data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary we suspect occurs because individuals have completed the games they recieved during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam.
@@ -249,20 +293,71 @@ ggplot(data = games_user_growth) +
   scale_y_continuous(labels = comma) +
   xlab("Years")+
   ylab("Average Number of Players") +
-  labs(title = "Steam Platform Growth")
+  labs(title = "Steam Platform Growth using Avg. Players")
+games_user_growth
+
+
+games_user_growth_pk <- games %>% 
+  filter(year %in% c(2012:2020)) %>% 
+  group_by(year) %>% 
+  summarise(peak_month_all_years = sum(peak)) 
+ggplot(data = games_user_growth_pk) +
+  geom_line(aes(x = year, y = peak_month_all_years),color = "blue", size = 1) +
+  geom_point(aes(x = year, y = peak_month_all_years),color = "red", size = 3) +
+  scale_x_continuous(breaks = seq(2012, 2020, by = 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab("Years")+
+  ylab("Peak Number of Players") +
+  labs(title = "Steam Platform Growth using Peak Players")
+games_user_growth_pk
+
+
 ```
 
 > Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
 
-> Question 4, Randy:
+> Question 4, Randy: total number of titles on the steam platform every years.
 
 
+```{r}
+g_without_2021 <- games %>% 
+  filter(number_of_month == 12, year %in% 2012:2020)
+
+g_added <- g_without_2021 %>% 
+ggplot()+
+  geom_bar(aes(x = year))+
+  scale_x_continuous(breaks = seq(2012, 2020, by = 1))
+
+g_added
+```
 
 
+> Randy: Change in number of new titles on steam
 
+```{r}
+g_added_count <- g_without_2021 %>% 
+  count(year)
+
+grow_diff_titles <- c(268,268,393,549,720,911,1034,1101,1165)
+
+g_added_count$differ <- grow_diff_titles
+
+g_added_count <- g_added_count %>% 
+  mutate(subtracted = n - differ) 
+  
+g_added_count %>%
+  ggplot() +
+  geom_line(aes(x = year, y = subtracted, group = 1), size = 1, color = "red")+
+  geom_point(aes(x = year, y = subtracted, group = 1), size = 3, color = "red")+
+  scale_x_continuous(breaks = seq(2012, 2020, by = 1))
+
+g_added_count
+
+```
+> research questions randy thought of 4/20: whats the worst game by avg players (peak, avg), what is the best game?
 
 > Question 5, Owen:
 
 
-
+ 
