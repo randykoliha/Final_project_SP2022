@@ -334,7 +334,7 @@ games_user_growth_pk
 > Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
 
-> Question 4, Randy: total number of titles on the steam platform every years.
+> Question 4, Randy: total number of significant titles on the steam platform every years.
 
 # **Question 4: The number of relevant titles published to the Steam platform from 2012 - 2021?**
 ```{r}
@@ -352,7 +352,13 @@ ggplot()+
 g_added
 ```
 
+<<<<<<< HEAD
 **Question 5: The change in new titles being published to Steam from 2012 - 2021?**
+=======
+
+> Randy: Change in number of new significant titles on steam
+
+>>>>>>> b94b99ea42e1a7229438a6aaeaa326ba54e3f66f
 ```{r}
 g_added_count <- g_without_2021 %>% 
   count(year)
