@@ -352,13 +352,13 @@ ggplot()+
 g_added
 ```
 
-<<<<<<< HEAD
+
 **Question 5: The change in new titles being published to Steam from 2012 - 2021?**
-=======
+
 
 > Randy: Change in number of new significant titles on steam
 
->>>>>>> b94b99ea42e1a7229438a6aaeaa326ba54e3f66f
+
 ```{r}
 g_added_count <- g_without_2021 %>% 
   count(year)
@@ -382,6 +382,7 @@ g_added_count %>%
 g_added_count
 
 ```
+
 > When analyzing this data we are looking at what we consider to be relevant titles published on the Steam platform. Anyone can publish their game on Steam and as of 2020 their were nearly 50,000 titles published on the platform. The data utilized in the data set is pulled from a data set that foucses on games that are actually played. When looking at the graphs we can see that the game library on Steam has been increasing over the years however we can also see that there was a large dip in the number of relevant games published to the platform between 2016 and 2018
 
 >research questions randy thought of 4/20: whats the worst game by avg players (peak, avg), what is the best game?
