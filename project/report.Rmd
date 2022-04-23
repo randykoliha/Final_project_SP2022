@@ -1,20 +1,14 @@
 ---
-title: "Final Report for Intro to Data Science"
-output: html_notebook
+title: "Final Report for Intro to Data Science: Steam Games"
+output:
+  
+  html_notebook:
+    toc: TRUE
+    toc_float: TRUE
+    theme: darkly
 ---
 
------------------------------------------------------------------------------------------------------------------------
-## Instructor Notes
-This is where the final project report write-up goes. 
 
-
-Before you submit, make sure everything runs as expected.
-
-You can add sections as you see fit. Make sure you have a section called "Introduction" at the beginning and a section called "Conclusion" at the end. The rest is up to you!
-
-_Make use of your knowledge of Markdown to appropriately typeset this report!_
-------------------------------------------------------------------------------------------------------------------------
-# Final Report for Intro to Data Science: Steam Games
 
 ## Group Members
 
@@ -27,14 +21,14 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 - John Levitt
 
 
-## Introduction
+# Introduction
 
 Steam is a popular, online video game distributor with many other complementing features. Steams hosts community discussion threads, access to download community-made modifications to games sold on the platform, social media-like user profiles and friends lists that displays the users overall or recent video game activity, and sales events which are based on holidays or unique themes.
 
 We want to analyze a dataset regarding Steam games to dive deep into the behavior of gamers on the platform.
 
 
-## Packages
+# Packages
 
 Loading any needed packages.
 
@@ -44,11 +38,11 @@ library(scales)
 library(directlabels)
 ```
 
-## The Dataset
+# The Dataset
 
 The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years July 2012- Febuary 2021. The data set has records of 1258 games (also includes other miscellaneous pieces of software), and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
 
->Running the data & cleaning up
+## Running the data & cleaning up
 
 ```{r}
 # Storing dataset in `games`
@@ -62,7 +56,15 @@ games <- games %>%
   arrange(desc(year), number_of_month)
   games
 ```
->How many games are in the data set
+
+# Data Exploration
+
+```{r}
+summary(games)
+```
+
+
+## How many games are in the data set
 
 ```{r}
 # Finding the distinct number of `gamenames`
@@ -80,9 +82,9 @@ dist_g
 dist_g_alpha
 ```
 
-# **Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?**
+## Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?
 
-**Case 1**
+### Case 1: Interesting Example
 
 ```{r}
 g_payday <- games %>% 
@@ -109,7 +111,7 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 ![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
 
-**Case 2: Multiplayer/Esports Titles**
+### Case 2: Multiplayer/Esports Titles
 
 ```{r}
 g_pubg <- games %>% 
@@ -184,7 +186,7 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 > This data shows that many multiplayer games seem to gain player over time and often have their peak average players occur in a period signficantly after the launch of the game.
 
-**Case 3: Single Player Titles**
+### Case 3: Single Player Titles
 ```{r}
 g_fallout4 <- games %>% 
   filter(gamename == "Fallout 4") %>% 
@@ -257,7 +259,7 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 > This data shows that singleplayer titles seem to have a drastic fall off in their player base following the launch of the game. This most likely occurs because once someone beats a single player game they are less likely to return to it. This can also be attributed to the fact that multiplayer/esports games are usally continually updated with new content single player game typically are less likely to receive these updates consistently.
 
-# **Question 2: Is the Steam platform effected by seasonality?**
+## **Question 2: Is the Steam platform effected by seasonality?**
 
 ```{r}
 games_seasons <- games %>% 
@@ -296,7 +298,7 @@ games_seasons_pk
 
 > This data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary we suspect occurs because individuals have completed the games they recieved during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam.
 
-# **Question 3: What does the growth of Steam platform look like from 2012 - 2021?**
+## Question 3: What does the growth of Steam platform look like from 2012 - 2021?
 
 ```{r}
 games_user_growth <- games %>% 
@@ -334,9 +336,11 @@ games_user_growth_pk
 > Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
 
+
+
+## **Question 4: The number of relevant titles published to the Steam platform from 2012 - 2021?**
 > Question 4, Randy: total number of significant titles on the steam platform every years.
 
-# **Question 4: The number of relevant titles published to the Steam platform from 2012 - 2021?**
 ```{r}
 g_without_2021 <- games %>% 
   filter(number_of_month == 12, year %in% 2012:2020)
@@ -353,7 +357,7 @@ g_added
 ```
 
 
-**Question 5: The change in new titles being published to Steam from 2012 - 2021?**
+## **Question 5: Whats the change in new relevant titles being published to Steam from 2012 - 2021?**
 
 
 > Randy: Change in number of new significant titles on steam
@@ -377,7 +381,7 @@ g_added_count %>%
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) +
   xlab("Years")+
   ylab("Numbers of Games") +
-  labs(title = "Number of Games Published to Steam by Year")
+  labs(title = "Growth of Games Published to Steam by Year")
 
 g_added_count
 
@@ -385,7 +389,50 @@ g_added_count
 
 > When analyzing this data we are looking at what we consider to be relevant titles published on the Steam platform. Anyone can publish their game on Steam and as of 2020 their were nearly 50,000 titles published on the platform. The data utilized in the data set is pulled from a data set that foucses on games that are actually played. When looking at the graphs we can see that the game library on Steam has been increasing over the years however we can also see that there was a large dip in the number of relevant games published to the platform between 2016 and 2018
 
->research questions randy thought of 4/20: whats the worst game by avg players (peak, avg), what is the best game?
+# Data Analysis Questions 
+
+> randy: 
+
+## what game had the best avg players proformance on steam?
+
+```{r}
+games %>% 
+  filter(avg == max(avg))
+```
+
+## What game had the most peak players in steam history?
+
+```{r}
+games %>% 
+  filter(peak == max(peak))
+```
+## Which game had the highest gain in players from the previous month
+
+```{r}
+games %>% 
+  drop_na(gain) %>% 
+  filter(gain == max(gain))
+  
+```
+
+> Playersunknown Battlegrounds has had the highest peak and avg players as well as greatest gain from the prior month in all of steam history.
+
+
+
+## Which game has had the biggest loss of players from one month to the next in steam history?
+
+```{r}
+games %>% 
+  drop_na(gain) %>%
+  filter(gain == min(gain))
+```
+
+> This makes sense considering cyberpunk was badly reviewed after the released. The game was filled with bugs that made the game hard to enjoy so a lot of people returned the game as well.
+
+
+
+
+
 
 > Question 5, Owen:
 
