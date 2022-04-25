@@ -84,7 +84,7 @@ dist_g_alpha
 
 ## Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?
 
-### Case 1: What if the game is given out for free after its been for sale.
+### Case 1: Interesting Example
 
 ```{r}
 g_payday <- games %>% 
@@ -183,8 +183,6 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
   scale_y_continuous(labels = comma) +
   labs(title = "DOTA 2: Average Players by Year")
 ```
-
-> CSGO also was given out for free in 2020 so that shows simularites with the games given out for free over time.
 
 > This data shows that many multiplayer games seem to gain player over time and often have their peak average players occur in a period signficantly after the launch of the game.
 
@@ -436,7 +434,7 @@ games %>%
 
 
 
-
+> Question 5, Owen:
 
 
  
