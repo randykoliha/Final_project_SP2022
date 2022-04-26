@@ -18,12 +18,12 @@ output:
 
 - John Levitt
 
-<<<<<<< HEAD
+
 ## Introduction
 =======
 
 # Introduction
->>>>>>> 3bf3a4b239a232bf562d68063e8ff6c1f4f1da1e
+
 
 Steam is a popular, online video game distributor with many other complementing features. Steams hosts community discussion threads, access to download community-made modifications to games sold on the platform, social media-like user profiles and friends lists that displays the users overall or recent video game activity, and sales events which are based on holidays or unique themes.
 
@@ -34,7 +34,7 @@ We want to analyze a dataset regarding Steam games to dive deep into the behavio
 =======
 
 # Packages
->>>>>>> 3bf3a4b239a232bf562d68063e8ff6c1f4f1da1e
+
 
 Loading any needed packages.
 
@@ -88,7 +88,7 @@ dist_g
 dist_g_alpha
 ```
 
-## Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?
+## **Question 1: Do all games lose popularity overtime? How do multiplayer and single player titles differ?**
 
 ### Case 1: What if the game is given out for free after its been for sale.
 
@@ -306,7 +306,7 @@ games_seasons_pk
 
 > This data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary we suspect occurs because individuals have completed the games they recieved during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam.
 
-## Question 3: What does the growth of Steam platform look like from 2012 - 2021?
+## **Question 3: What does the growth of Steam platform look like from 2012 - 2021?**
 
 ```{r}
 games_user_growth <- games %>% 
