@@ -8,8 +8,6 @@ output:
     theme: darkly
 ---
 
-
-
 ## Group Members
 
 - Randy Koliha
@@ -345,9 +343,6 @@ games_user_growth_pk
 
 > Looking at the data we can see that the Steam platform has had relatively consistent growth from 2012 to 2020. However can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018 Fortnite hit a  with 8.3 million concurrent players. We suspect that the popuarity of Fortnite combined with the fact that it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
-
-
-
 ## **Question 4: The number of relevant titles published to the Steam platform from 2012 - 2021?**
 > Question 4, Randy: total number of significant titles on the steam platform every years.
 
@@ -368,10 +363,6 @@ g_added
 
 
 ## **Question 5: Whats the change in new relevant titles being published to Steam from 2012 - 2021?**
-
-
-> Randy: Change in number of new significant titles on steam
-
 
 ```{r}
 g_added_count <- g_without_2021 %>% 
@@ -399,24 +390,23 @@ g_added_count
 
 > When analyzing this data we are looking at what we consider to be relevant titles published on the Steam platform. Anyone can publish their game on Steam and as of 2020 their were nearly 50,000 titles published on the platform. The data utilized in the data set is pulled from a data set that foucses on games that are actually played. When looking at the graphs we can see that the game library on Steam has been increasing over the years however we can also see that there was a large dip in the number of relevant games published to the platform between 2016 and 2018
 
-# Data Analysis Questions 
-
-> randy: 
-
-## what game had the best avg players proformance on steam?
+## **Question 6: what game had the best avg players performance on steam?**
 
 ```{r}
 games %>% 
   filter(avg == max(avg))
 ```
+> PLAYERUNKNOWN'S BATTLEGROUNDS is the game with the best avg player performance.
 
-## What game had the most peak players in steam history?
+## **Question 7: What game had the most peak players in steam history?**
 
 ```{r}
 games %>% 
   filter(peak == max(peak))
 ```
-## Which game had the highest gain in players from the previous month
+> The game with the highest peak players in Steam history is PLAYERUNKNOWN'S BATTLEGROUNDS with 3,236,027 players.
+
+## **Question 8: Which game had the highest gain in players from the previous month?**
 
 ```{r}
 games %>% 
@@ -424,19 +414,15 @@ games %>%
   filter(gain == max(gain))
   
 ```
-
 > Playersunknown Battlegrounds has had the highest peak and avg players as well as greatest gain from the prior month in all of steam history.
 
-
-
-## Which game has had the biggest loss of players from one month to the next in steam history?
+## **Question 9: Which game has had the biggest loss of players from one month to the next in steam history?**
 
 ```{r}
 games %>% 
   drop_na(gain) %>%
   filter(gain == min(gain))
 ```
-
 > This makes sense considering cyberpunk was badly reviewed after the released. The game was filled with bugs that made the game hard to enjoy so a lot of people returned the game as well.
 
 
