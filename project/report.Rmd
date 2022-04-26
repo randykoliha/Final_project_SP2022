@@ -26,13 +26,11 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 
 - John Levitt
 
-
 ## Introduction
 
 Steam is a popular, online video game distributor with many other complementing features. Steams hosts community discussion threads, access to download community-made modifications to games sold on the platform, social media-like user profiles and friends lists that displays the users overall or recent video game activity, and sales events which are based on holidays or unique themes.
 
 We want to analyze a dataset regarding Steam games to dive deep into the behavior of gamers on the platform.
-
 
 ## Packages
 
