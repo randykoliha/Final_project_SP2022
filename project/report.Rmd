@@ -18,16 +18,16 @@ output:
 
 - John Levitt
 
-=======
+
 
 # Introduction
 
-Steam is a popular, online video game distributor with many other complementing features. Steams hosts community discussion threads, access to download community-made modifications to games sold on the platform, social media-like user profiles and friends lists that displays the users overall or recent video game activity, and sales events which are based on holidays or unique themes.
+Steam is a popular, online video game distributor with many other complementing features. Steam hosts community discussion threads, access to download community-made modifications to games sold on the platform, social media-like user profiles and friends lists that displays the users overall or recent video game activity, and sales events which are based on holidays or unique themes.
 
 We want to analyze a dataset regarding Steam games to dive deep into the behavior of gamers on the platform.
 
 
-=======
+
 
 # Packages
 
@@ -35,14 +35,14 @@ We want to analyze a dataset regarding Steam games to dive deep into the behavio
 Loading any needed packages.
 
 ```{r}
-library(tidyverse)
-library(scales)
-library(directlabels)
+try(library(tidyverse),
+library(scales),
+library(directlabels))
 ```
 
 # The Dataset
 
-The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years July 2012- Febuary 2021. The data set has records of 1258 games (also includes other miscellaneous pieces of software), and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak.
+The games.csv dataset has data collected for games on the popular game license selling platform, Steam, over the months from the years July 2012- Febuary 2021. The data set has records of 1258 games (also includes other miscellaneous pieces of software), and includes their titles, monthly player peaks, monthly average players at the same time, monthly gains/losses of players compared to the previous month, and the percentage of how closely the average players approach the peak. It should also be noted that the data set was scrapped data from steam by Steam Charts, and only tracks relevant games on steam.
 
 ## Running the data & cleaning up
 
@@ -111,7 +111,7 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 #auto color pallet if + scale manual is removed
 ```
 
-![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
+> ![**Why Payday 2 Spiked In 2017**](https://i.ibb.co/jfwmWjy/payday2pic.jpg)
 
 ### Case 2: Multiplayer/Esports Titles
 
@@ -188,7 +188,7 @@ scale_colour_manual(values=c("#964B00","#f58231","#030000", "#00FBFE", "#3cb44b"
 
 > CSGO also was given out for free in 2020 so that shows simularites with the games given out for free over time.
 
-> This data shows that many multiplayer games seem to gain players over time and often have their peak average players occur in a period signficantly after the launch of the game.
+> This data shows that many multiplayer games seem to gain players over time and often have their peak average players occur in a period signficantly after the launch of the game. While GTA 5 decreases unlike the multiplayer games in the first year, a varible that has to be factored in is that GTA 5 is a single and mutiplayer game. So, we see a sudden drop on release but increasing players over time.
 
 ### Case 3: Single Player Titles
 ```{r}
@@ -333,7 +333,7 @@ games_user_growth_pk
 
 > The graph shows that the Steam platform has had relatively consistent growth from 2012 to 2020. However, we can see the only time Steam has a drop in users was from 2018 to 2019. We suspect this to be related to the rise of other online games market places such as the EPIC Games store and the popularity of Fortnite at the time. In November of 2018, Fortnite hit a 8.3 million concurrent players. We suspect that the popularity of Fortnite combined with the fact it was not on Steam is ultimately what caused the dip in players from 2018-2019.
 
-## **Question 4: What is the number of relevant titles published to the Steam platform from 2012 - 2021?**
+## **Question 4: What is the total number of relevant titles on the Steam platform from 2012 - 2021?**
 
 
 ```{r}
@@ -346,7 +346,7 @@ ggplot()+
   scale_x_continuous(breaks = seq(2012, 2020, by = 1)) +
   xlab("Years")+
   ylab("Number of Games") +
-  labs(title = "Number of Games Published on Steam")
+  labs(title = "Total Number of Relevent Games on Steam")
 
 g_added
 ```
@@ -378,9 +378,11 @@ g_added_count
 
 ```
 
-> When analyzing this data we are looking at what we consider to be relevant titles published on the Steam platform. Anyone can publish their game on Steam and as of 2020 their were nearly 50,000 titles published on the platform. The data utilized in the data set is pulled from a data set that focuses on games that are actually played. When looking at the graphs we can see that the game library on Steam has been increasing over the years. However, we can also see that there was a large dip in the number of relevant games published to the platform between 2016 and 2018.
+> When analyzing this data we are looking at what we consider to be relevant titles published on the Steam platform. Anyone can publish their game on Steam and as of 2020 their were nearly 50,000 titles published on the platform. The data utilized in the data set is pulled from a data set that focuses on games that are actually played. When looking at the graphs we can see that the total games on the library have increasing over the years. However, we can also see in the line graph that there has been less games being published to steam sinse 2016.
 
-## **Question 6: what game had the best avg players performance on steam?**
+# Data Analysis 
+
+## **Question 1: what game had the best avg players performance on steam?**
 
 ```{r}
 games %>% 
@@ -388,7 +390,7 @@ games %>%
 ```
 > PLAYERUNKNOWN'S BATTLEGROUNDS is the game with the best avg player performance.
 
-## **Question 7: What game had the most peak players in steam history?**
+## **Question 2: What game had the most peak players in steam history?**
 
 ```{r}
 games %>% 
@@ -396,7 +398,7 @@ games %>%
 ```
 > The game with the highest peak players in Steam history is PLAYERUNKNOWN'S BATTLEGROUNDS with 3,236,027 players.
 
-## **Question 8: Which game had the highest gain in players from the previous month?**
+## **Question 3: Which game had the highest gain in players from the previous month?**
 
 ```{r}
 games %>% 
@@ -404,9 +406,9 @@ games %>%
   filter(gain == max(gain))
   
 ```
-> Playersunknown Battlegrounds has had the highest peak and avg players as well as greatest gain from the prior month in all of steam history.
+> Playersunknown Battlegrounds has had the greatest gain from the prior month in all of steam history.
 
-## **Question 9: Which game has had the biggest loss of players from one month to the next in steam history?**
+## **Question 4: Which game has had the biggest loss of players from one month to the next in steam history?**
 
 ```{r}
 games %>% 
@@ -417,4 +419,31 @@ games %>%
 
 # **Conclusion**
 
-Our data suggest that multiplayer games can hit their peak after release after a new content update is released. This is not always the case though. Single player games follow the trend of peaking on release due to players finishing the game. We were able to use our data to see the seasonality of Steam Games and conclude that the months December, January and February are the most actively played months. Lastly, our analysis concludes that steam is a steady consistently growing platform that is used by millions daily.
+With all the exploratory data analysis complete lets run down what we have learned. We found that single player games differ when it comes to average players over years. Multiplayer games tend to have a increase from launch and either stay consistent in rising for each year or decreasing (EX. Dota 2 & Playerunknowns Battlegrounds respectively). While, single player games have a all time high avg players and then drops down and stays consistent. This makes a lot of sense when looking at GTA 5 becuase the game is a mix of single and multiplayer, so it declines on the first year but once people finished the single player the multiplayer version of the game follows the trend of other purely mutiplayer titles. We also learned that large spikes in avg players of a game that are not gradual means that there was most likely a game give away at some point. A example of this is Payday 2 and CSGO where they just jump from one month to the next. When aggragating all games on steam we learned that there is a seasonal trend when it comes to peak and avg players. We found that gamers tend to play more when there is holidays, or summer break. When looking at total number of players in each year based on peak and average players we see a linear increase in players of the years. This means that steam is growing its cutomer base over time, although there was a slight decrease in 2019 when popular title Fortnite was being played on another platform EPIC Games. So, we believe that Fortnite to be the ultimate cause, however after fortnite lost traction steams overall players increased passed 2018. We also found that the relevant total number of games released on steam has increased over time. However, the amount of relevant games published from 2016-present has been lower than other years. Finally we found the best game on steam which was Playerunknowns Battlegrounds with the best avg, peak, and gain in all of steam history. We found the worst game as well with the lowest gain in steam history which was Cyberpunk 2077 which lost 250249 players from one month to the next.
+
+
+# **Future works**
+
+There is still a lot to be found and explored with this dataset. For one the data that we did analyze for single player and mutiplayer games was just a handful of games, so we would run more analysis for those types. Another thing that would improve the analysis of this data set would be to mutate a column that specifies what type of game that it is whether it be mutiplayer, single player, or both. Another good mutate would be what genre the game is in, and price of the game. These mutates would enable us to make sense of how gamers behave when there is a certain price for certain titles. We do know that when games are suddenly given out for free avg players increase, but at the moment we cant compare two shooter mutiplayer games at different prices without doing research. It would also be useful for the future to determine how Steam Charts decides which games are relevant enough to record. When looking at the actual steam platform there is more than 1200 games. At the moment we are just assuming that these titles have enough players to be considered worth while keeping track of.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
