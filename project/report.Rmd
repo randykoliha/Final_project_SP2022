@@ -297,7 +297,7 @@ games_seasons_pk
 
 > The data suggests that there is a seasonality to Steam's player data. This shows that Steam has the most players around December, Janurary, and Feburary. We suspect that this occurs because of the Christmas season and people recieving money and games as gifts. The steep fall off we see in Feburary may occur because individuals have completed the games they received during the holiday season. We also see an increase in players during the summer months. We suspect that this occurs because individuals are out of school for their summer break, giving them more time to play video games on Steam.
 
-## **Question 3: What does the growth of Steam platform look like from 2012 - 2021?**
+## **Question 3: What does the growth of Steam players look like from 2012 - 2021?**
 
 ```{r}
 games_user_growth <- games %>% 
